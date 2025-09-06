@@ -1,0 +1,78 @@
+name: denguard
+description: A new Flutter project.
+publish_to: 'none' # Prevent accidental publishing to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.7.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core dependencies
+  cupertino_icons: ^1.0.8
+  provider: ^6.1.0
+
+  # Firebase dependencies
+  firebase_core: ^2.24.0
+  cloud_firestore: ^4.14.0
+  firebase_auth: ^4.17.0
+  firebase_messaging: ^14.7.0
+
+  # HTTP and API dependencies
+  http: ^1.1.0  # Use latest stable version
+  googleapis_auth: ^1.4.0
+  googleapis: ^11.1.0
+
+  # Map dependencies - using compatible versions
+  google_maps_flutter: ^2.5.0
+  flutter_map: ^5.0.0
+  latlong2: ^0.9.0  # Compatible with flutter_map ^5.0.0
+
+  # Location and permissions
+  location: ^5.0.0
+  permission_handler: ^11.3.1
+
+  geocoding: ^2.1.1
+
+  # UI and utilities
+  url_launcher: ^6.2.5
+  fl_chart: ^0.68.0
+  intl: ^0.20.2
+  image_picker: ^1.0.4
+  uuid: ^3.0.7
+  flutter_launcher_icons: ^0.13.1
+  firebase_analytics: ^10.8.0
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  flutter_native_splash: ^2.3.10
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_logoo.png"
+  adaptive_icon_background: "#1565C0"
+  adaptive_icon_foreground: "assets/images/app_logoo.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/app_logoo.png
+    - assets/denguard-works-93f4c84b92ef.json
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/app_logoo.png
+  android_12:
+    image: assets/images/app_logoo.png
+    color: "#ffffff"
+  ios: true
+  fullscreen: true

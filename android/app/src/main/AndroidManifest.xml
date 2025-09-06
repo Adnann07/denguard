@@ -1,0 +1,95 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Location permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- Optional: Background location (only if your app needs it) -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- Internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Phone call permissions (keep if your app actually needs to call) -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PRIVILEGED" />
+
+    <!-- Notification permission (Android 13+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+
+
+    <application
+        android:label="denguard"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher">
+
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <!-- ADD YOUR GOOGLE MAPS API KEY HERE -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC0vS7yQ4tpiM6_8kACGBBugcq3kfzbmZg"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+
+            <meta-data
+                android:name="io.flutter.embedding.android.NormalTheme"
+                android:resource="@style/NormalTheme"
+                />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- ✅ Boot receiver for persistent notifications -->
+        <receiver android:name="com.dexterous.flutterlocalnotifications.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Flutter embedding version -->
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+
+
+    </application>
+
+    <!-- Queries for package visibility -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>
