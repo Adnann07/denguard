@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore all JSON files
+*.json
+
+# But keep Flutter's pubspec.lock
+!pubspec.lock
+
+# Firebase config and service account keys
+android/app/google-services.json
+android/app/src/google-services.json
+denguard-works-*.json
+assets/denguard-works-*.json
